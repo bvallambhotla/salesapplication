@@ -5,7 +5,7 @@
 	<div class="row mb-4">
 	  <div class="col-12">
 		<label for="salespersonSelect" class="form-label">Select Salesperson</label>
-		<select id="salespersonSelect" class="form-select" [(ngModel)]="selectedSalespersonId" (change)="onSalespersonSelect()">
+		<select id="salespersonSelect" class="form-select" [(ngModel)]="selectedSalespersonId" (change)="salespersonChanged()">
 		  <option *ngFor="let salesperson of salespersons" [value]="salesperson.id">
 			{{ salesperson.title }}
 		  </option>

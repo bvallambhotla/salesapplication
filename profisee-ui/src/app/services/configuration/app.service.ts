@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { MenuItem } from "../../common/models/menu-item";
 import { FeatureConfig } from "../../common/models/feature-config";
-import { HomeComponent } from '../../common/home/home.component';
 import { SalesPerformanceComponent } from '../../common/report/sales-performance.component';
 import { SmartPageComponent } from '../../common/smart-page/components/smart-page.component';
 

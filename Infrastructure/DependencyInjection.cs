@@ -1,5 +1,4 @@
 ﻿using Profisee.Application.Common.Interfaces;
-using Profisee.Domain.Constants;
 using Profisee.Infrastructure.Data;
 using Profisee.Infrastructure.Data.Interceptors;
 using Microsoft.EntityFrameworkCore;

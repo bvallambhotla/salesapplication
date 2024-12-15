@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { MockService } from '../smart-page/services/mock.service';
 import { ApiService } from '../smart-page/services/data.service';
 import { forkJoin, timeout } from 'rxjs';
 import { FeatureConfig } from '../models/feature-config';
@@ -70,7 +69,7 @@ export class SalesPerformanceComponent {
     });
   }
 
-  calculateTotalSalesAndCommission() {
+  private calculateTotalSalesAndCommission() {
     this.quarters.forEach(quarter => {
       quarter.totalSales = 0;
       quarter.totalCommission = 0;
@@ -97,14 +96,14 @@ export class SalesPerformanceComponent {
     });
   }
 
-  isDiscountValid(discount: any, salesDate: string): boolean {
+  private isDiscountValid(discount: any, salesDate: string): boolean {
     const saleDate = new Date(salesDate);
     const startDate = new Date(discount.beginDate);
     const endDate = new Date(discount.endDate);
     return saleDate >= startDate && saleDate <= endDate;
   }
 
-  onSalespersonSelect() {
+  salespersonChanged() {
     this.spinner.show();
     this.calculateTotalSalesAndCommission();
     setTimeout(() => {

@@ -1,14 +1,15 @@
 
-//Todo: this can be enhanced and optimized with state management. 
+//Todo: Interactions to this service enhanced with state management. 
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { handleError } from '../../error-handler/error-handler.operator';
 import { NotificationService } from '../../notifications/services/notification.service';
 import { SpinnerService } from '../../spinner/services/spinner.service';
 import { withSpinner } from '../../spinner/operator/spinner.operator';
 import { handleSuccess } from '../../success-handler/success-handler.operator';
+import { LookupService } from './lookupservice';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class ApiService {
   constructor(
     private http: HttpClient,
     private notification: NotificationService,
-    private spinnerService: SpinnerService
+    private spinnerService: SpinnerService,
+    private lookupService: LookupService
   ) { }
 
   getData(path: string): Observable<any[]> {
@@ -35,7 +37,8 @@ export class ApiService {
       .pipe(
         withSpinner(this.spinnerService),
         handleSuccess(this.notification, 'Sucessfully created.'),
-        handleError(this.notification, 'Failed to create item.')
+        handleError(this.notification, 'Failed to create item.'),
+        tap(() => this.lookupService.refreshLookups())
       );
   }
 
@@ -44,7 +47,8 @@ export class ApiService {
       .pipe(
         withSpinner(this.spinnerService),
         handleSuccess(this.notification, 'Sucessfully updated.'),
-        handleError(this.notification, 'Failed to update item.')
+        handleError(this.notification, 'Failed to update item.'),
+        tap(() => this.lookupService.refreshLookups())
       );
   }
 
@@ -53,7 +57,8 @@ export class ApiService {
       .pipe(
         withSpinner(this.spinnerService),
         handleSuccess(this.notification, 'Sucessfully deleted.'),
-        handleError(this.notification, 'Failed to delete item.')
+        handleError(this.notification, 'Failed to delete item.'),
+        tap(() => this.lookupService.refreshLookups())
       );
   }
 }

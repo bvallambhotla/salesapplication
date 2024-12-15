@@ -20,13 +20,15 @@ export class NotificationService {
 
   private nextId = 1;
 
-  showNotification(type: string, message: string, autoHide = true, autoHideTime = 3000): void {
+  showNotification(type: string, message: string, autoHide = true, autoHideTime = 2000): void {
     const notification: Notification = { id: this.nextId++, type, message, autoHide, autoHideTime };
     this.notifications.push(notification);
     this.notificationSubject.next(this.notifications);
 
     if (autoHide) {
-      setTimeout(() => this.removeNotification(notification.id), autoHideTime);
+      setTimeout(() => {
+        this.removeNotification(notification.id)
+      }, autoHideTime);
     }
   }
 

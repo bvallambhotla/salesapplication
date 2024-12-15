@@ -23,7 +23,7 @@
 <!-- Modal Template -->
 <ng-template #editModal let-modal>
   <div class="modal-header">
-    <h5 class="modal-title">{{ editingItem[pageConfig.key] ? 'Edit Item' : 'Add New Item' }}</h5>
+    <h5 class="modal-title">{{ editingItem?.[pageConfig.key] ? 'Edit Item' : 'Add New Item' }}</h5>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
