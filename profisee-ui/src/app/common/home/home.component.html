@@ -1,0 +1,38 @@
+<div class="content">
+	<div class="bg-light">
+		<div class="container py-2">
+			<div class="text-center mb-5">
+				<h1 class="section-heading display-4 mb-3 d-flex justify-content-center align-items-center">
+				  <i class="fs-7 bi-bicycle me-3 bike-icon"></i>
+				  <span class="bike-text">BeSpoked Bikes</span>
+				</h1>
+			</div>							
+			<!-- <div class="row g-4">
+				<div class="col-md-4" *ngFor="let feature of features">
+					<a [routerLink]="feature.path" href="#" routerLinkActive="active">
+						<div class="card feature-card h-100 p-4">
+							<div class="icon-wrapper bg-soft-primary">
+								<i class="bi bi-{{feature.icon}}"></i>
+							</div>
+							<h3 class="card-title">{{feature.title}}</h3>
+							<p class="card-text text-muted">{{feature.description}}</p>
+						</div>
+					</a>
+				</div>
+			</div> -->
+			<div class="row g-4">
+				<div class="col-md-4" *ngFor="let feature of features">
+				  <a [routerLink]="feature.path" href="#" routerLinkActive="active">
+					<div class="card feature-card h-100 p-4 shadow-card">
+					  <div class="icon-wrapper bg-soft-primary">
+						<i class="bi bi-{{feature.icon}}"></i>
+					  </div>
+					  <h3 class="card-title">{{feature.title}}</h3>
+					  <p class="card-text text-muted">{{feature.description}}</p>
+					</div>
+				  </a>
+				</div>
+			  </div>			  
+		</div>
+	</div>
+</div>

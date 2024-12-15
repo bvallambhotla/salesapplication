@@ -1,0 +1,91 @@
+<div class="container">
+  <!-- Page Title Header -->
+  <div class="header d-flex justify-content-between align-items-center">
+    <div class="title-container">
+      <h1 class="page-title mb-0 text-truncate">{{ pageConfig.title }}</h1>
+    </div>
+    <i class="bi-filter fs-4 ms-3" *ngIf="pageConfig?.enableGridFilter" (click)="openFilterPopup()" style="cursor: pointer;"></i>
+  </div>
+
+  <div class="grid-container">
+    <ag-grid-angular
+      style="width: 100%; height: 400px;"
+      class="ag-theme-alpine"
+      [gridOptions]="gridOptions">
+    </ag-grid-angular>
+  </div>
+
+<!-- Add Button -->
+<button (click)="openEditForm({})" class="btn btn-primary mt-3" *ngIf="pageConfig.operations?.create">
+  <i class="fs-4 bi-plus-circle me-2"></i> Add {{pageConfig.title}}
+</button>
+
+<!-- Modal Template -->
+<ng-template #editModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">{{ editingItem[pageConfig.key] ? 'Edit Item' : 'Add New Item' }}</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm">
+      <div *ngFor="let col of editFormFields" class="mb-3">
+        <label [for]="col.field" class="form-label">{{ col.title }}</label>
+        <input *ngIf="col.type === 'text' || !col.type" id="{{ col.field }}" class="form-control" formControlName="{{ col.field }}" />
+        <input *ngIf="col.type === 'number'" id="{{ col.field }}" type="number" class="form-control" formControlName="{{ col.field }}" />
+        <input *ngIf="col.type === 'date'" id="{{ col.field }}" type="date" class="form-control" formControlName="{{ col.field }}" />
+        <input *ngIf="col.type === 'phone'"
+               id="{{ col.field }}"
+               type="tel"
+               class="form-control"
+               formControlName="{{ col.field }}" />
+        <div *ngIf="col.type === 'select'">
+          <select id="{{ col.field }}" class="form-control" formControlName="{{ col.field }}">
+            <option *ngFor="let option of getSelectOptions(col)" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+  </div>
+</ng-template>
+
+<!-- Filter Popup -->
+<ng-template #filterModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Apply Filter</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="filterForm">
+      <div *ngFor="let col of filterFormFields" class="mb-3">
+        <label [for]="col.field" class="form-label">{{ col.title }}</label>
+        <input *ngIf="col.type === 'text' || !col.type" id="{{ col.field }}" class="form-control" formControlName="{{ col.field }}" />
+        <input *ngIf="col.type === 'number'" id="{{ col.field }}" type="number" class="form-control" formControlName="{{ col.field }}" />
+        <input *ngIf="col.type === 'date'" id="{{ col.field }}" type="date" class="form-control" formControlName="{{ col.field }}" />
+        <input *ngIf="col.type === 'phone'"
+               id="{{ col.field }}"
+               type="tel"
+               class="form-control"
+               formControlName="{{ col.field }}" />
+        <div *ngIf="col.type === 'select'">
+          <select id="{{ col.field }}" class="form-control" formControlName="{{ col.field }}">
+            <option *ngFor="let option of getSelectOptions(col)" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="applyFilter()">Apply</button>
+  </div>
+</ng-template>
+
+</div>

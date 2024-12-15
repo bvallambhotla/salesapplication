@@ -1,0 +1,204 @@
+{
+  "products": [
+    {
+      "productId": 1,
+      "name": "Mountain Bike",
+      "manufacturer": "BeSpoked",
+      "style": "Mountain",
+      "purchasePrice": 500.00,
+      "salePrice": 750.00,
+      "qtyOnHand": 20,
+      "commissionPercentage": 10.00
+    },
+    {
+      "productId": 2,
+      "name": "Road Bike",
+      "manufacturer": "BeSpoked",
+      "style": "Road",
+      "purchasePrice": 600.00,
+      "salePrice": 900.00,
+      "qtyOnHand": 15,
+      "commissionPercentage": 12.00
+    },
+    {
+      "productId": 3,
+      "name": "Hybrid Bike",
+      "manufacturer": "BeSpoked",
+      "style": "Hybrid",
+      "purchasePrice": 400.00,
+      "salePrice": 600.00,
+      "qtyOnHand": 30,
+      "commissionPercentage": 8.00
+    },
+    {
+      "productId": 4,
+      "name": "Electric Bike",
+      "manufacturer": "BeSpoked",
+      "style": "Electric",
+      "purchasePrice": 1000.00,
+      "salePrice": 1500.00,
+      "qtyOnHand": 10,
+      "commissionPercentage": 15.00
+    },
+    {
+      "productId": 5,
+      "name": "Touring Bike",
+      "manufacturer": "BeSpoked",
+      "style": "Touring",
+      "purchasePrice": 700.00,
+      "salePrice": 1050.00,
+      "qtyOnHand": 12,
+      "commissionPercentage": 10.00
+    }
+  ],
+  "salespersons": [
+    {
+      "salespersonId": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "address": "123 Elm St, Springfield, IL",
+      "phone": "555-1234",
+      "startDate": "2024-01-01",
+      "terminationDate": null,
+      "managerId": null
+    },
+    {
+      "salespersonId": 2,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "address": "456 Oak St, Springfield, IL",
+      "phone": "555-5678",
+      "startDate": "2024-03-01",
+      "terminationDate": null,
+      "managerId": 1
+    },
+    {
+      "salespersonId": 3,
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "address": "789 Pine St, Springfield, IL",
+      "phone": "555-8765",
+      "startDate": "2024-04-15",
+      "terminationDate": null,
+      "managerId": 1
+    },
+    {
+      "salespersonId": 4,
+      "firstName": "Bob",
+      "lastName": "Brown",
+      "address": "101 Maple St, Springfield, IL",
+      "phone": "555-1122",
+      "startDate": "2024-06-10",
+      "terminationDate": null,
+      "managerId": 2
+    }
+  ],
+  "customers": [
+    {
+      "customerId": 1,
+      "firstName": "Mike",
+      "lastName": "Davis",
+      "address": "123 Birch St, Springfield, IL",
+      "phone": "555-9988",
+      "startDate": "2024-05-01"
+    },
+    {
+      "customerId": 2,
+      "firstName": "Sara",
+      "lastName": "Miller",
+      "address": "456 Willow St, Springfield, IL",
+      "phone": "555-3344",
+      "startDate": "2024-07-21"
+    },
+    {
+      "customerId": 3,
+      "firstName": "Tom",
+      "lastName": "Taylor",
+      "address": "789 Cedar St, Springfield, IL",
+      "phone": "555-2233",
+      "startDate": "2024-08-01"
+    },
+    {
+      "customerId": 4,
+      "firstName": "Emily",
+      "lastName": "Wilson",
+      "address": "101 Redwood St, Springfield, IL",
+      "phone": "555-5566",
+      "startDate": "2024-09-15"
+    }
+  ],
+  "sales": [
+    {
+      "saleId": 1,
+      "salesDate": "2024-07-01",
+      "productId": 1,
+      "salespersonId": 1,
+      "customerId": 1
+    },
+    {
+      "saleId": 2,
+      "salesDate": "2024-08-15",
+      "productId": 2,
+      "salespersonId": 2,
+      "customerId": 2
+    },
+    {
+      "saleId": 3,
+      "salesDate": "2024-09-10",
+      "productId": 3,
+      "salespersonId": 3,
+      "customerId": 3
+    },
+    {
+      "saleId": 4,
+      "salesDate": "2024-10-01",
+      "productId": 4,
+      "salespersonId": 4,
+      "customerId": 4
+    },
+    {
+      "saleId": 5,
+      "salesDate": "2024-12-05",
+      "productId": 5,
+      "salespersonId": 1,
+      "customerId": 2
+    }
+  ],
+  "discounts": [
+    {
+      "discountId": 1,
+      "productId": 1,
+      "beginDate": "2024-06-01",
+      "endDate": "2024-06-30",
+      "discountPercentage": 10.00
+    },
+    {
+      "discountId": 2,
+      "productId": 2,
+      "beginDate": "2024-07-01",
+      "endDate": "2024-07-31",
+      "discountPercentage": 15.00
+    },
+    {
+      "discountId": 3,
+      "productId": 3,
+      "beginDate": "2024-08-01",
+      "endDate": "2024-08-31",
+      "discountPercentage": 5.00
+    },
+    {
+      "discountId": 4,
+      "productId": 4,
+      "beginDate": "2024-09-01",
+      "endDate": "2024-09-30",
+      "discountPercentage": 20.00
+    },
+    {
+      "discountId": 5,
+      "productId": 5,
+      "beginDate": "2024-10-01",
+      "endDate": "2024-10-31",
+      "discountPercentage": 12.00
+    }
+  ]
+}
